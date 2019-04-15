@@ -1,7 +1,7 @@
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>healthyu</name>
+    <name>Prog05</name>
     <description>
-        A blank PhoneGap app.
+        This is prog05 for my CIS355 course at SVSU
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
