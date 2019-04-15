@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h1>Click to load CRUD Customers Table</h1>
+<button type="button" onclick="loadDoc()">Load Table</button>
+</div>
+<script>
+		function loadDoc(url, method, form) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        console.log(this.responseText);
+        if (this.readyState == 4 && this.status == 200) {
+            var redirect = false;
+            try {
+                var response = JSON.parse(this.responseText);
+                if (response.location) {
+                    window.location.href = response.location;
+                    redirect = true;
+                }
+            } catch {
+
+            }
+
+            if (!redirect)
+                document.getElementById("htmlDiv").innerHTML = this.responseText;
+        }
+    };
+
+    console.log(url + " " + method);
+
+    xhttp.open(method, url, true);
+
+    if (form != null && form != undefined){
+        xhttp.send(new FormData(form));
+    } else {
+        xhttp.send();
+    }
+    return false;
+}
+</script>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://csis.svsu.edu/~bhfalor/5/customer.php", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
